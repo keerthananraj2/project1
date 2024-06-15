@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Toggle Switch</title>
+    <style>
+        body {
+            background-color: #6ce1e8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+        }
+        h1 {
+            color: #202220;
+            font-family: 'Arial', sans-serif;
+        }
+        .toggle {
+            position: relative;
+            display: inline-block;
+            width: 100px;
+            height: 52px;
+            background: linear-gradient(45deg, #ff6ec4, #7873f5);
+            border-radius: 100px;
+            border: 2px solid #1a1616;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background 0.5s;
+        }
+        .toggle::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #4e5253;
+            top: 1px;
+            left: 1px;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .checkbox:checked + .toggle::after {
+            left: 49px;
+        }
+        .checkbox:checked + .toggle {
+            background: linear-gradient(45deg, #00c6ff, #0072ff);
+        }
+        .checkbox {
+            display: none;
+        }
+        .toggle-text {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            position: absolute;
+            top: 0;
+            width: 80%;
+            height: 100%;
+            align-items: center;
+            color: white;
+            z-index: 1;
+        }
+        .toggle-text span {
+            transition: opacity 0.5s;
+        }
+        .checkbox:checked + .toggle .toggle-text .off {
+            opacity: 0;
+        }
+        .checkbox:not(:checked) + .toggle .toggle-text .on {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Creative Toggle Switch</h1>
+        <b>TOGGLE It!!!</b>
+        <br><br>
+        <input type="checkbox" id="switch" class="checkbox" aria-label="Toggle Switch" />
+        <label for="switch" class="toggle">
+            <div class="toggle-text">
+                <span class="off">OFF</span>
+                <span class="on">ON</span>
+            </div>
+        </label>
+    </center>
+</body>
+</html>
